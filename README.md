@@ -18,7 +18,7 @@
 2. Set the following headers in the first row according to data you want to store.
 
 ### 2. Create a Google App Script
-Click on `Extensions -> Apss Script`. This will open new Google Script.
+Click on `Extensions -> Apps Script`. This will open new Google Script.
 Replace the `myFunction() { ...` section with the following code snippet:
 
 ```js
@@ -72,6 +72,17 @@ You should see a modal asking for permissions. Click `Review permissions` and co
 ### 4. Publish the project
 Now your project is ready to publish. Select the `Deploy` button and `New Deployment` from the drop-down.
 Click the "Select type" icon and select `Web app`. 
+
+```js
+fetch(scriptURL, {
+    redirect: "follow",
+    method: 'POST',
+    body: new FormData(form)
+}).then((res) => { console.log(res) })
+  .catch(error => console.error('Error!', error.message))
+```
+
+### Use ```redirect: "follow"``` to avoid CORS error.
 
 ### 5. Input
 <img src="https://github.com/ksalokya/google_sheet_api/blob/main/misc/postman.jpg">
